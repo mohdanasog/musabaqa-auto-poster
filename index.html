@@ -1,578 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musabaqa 2026 - Perfected Poster Generator</title>
-  
-  <!-- Stylish Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musabaqa 2026 - Perfected Poster Generator</title>
+  
+  <!-- Stylish Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg-color: #0f1015;
-      --card-bg: #1a1c23;
-      --card-border: #2a2d3d;
-      --accent-color: #6366f1;
-      --accent-hover: #4f46e5;
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --input-bg: #111217;
-      --input-border: #374151;
-    }
+  <style>
+    :root {
+      --bg-color: #0f1015;
+      --card-bg: #1a1c23;
+      --card-border: #2a2d3d;
+      --accent-color: #6366f1;
+      --accent-hover: #4f46e5;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --input-bg: #111217;
+      --input-border: #374151;
+    }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-    header {
-      background: linear-gradient(135deg, #2a0845, #6441a5);
-      padding: 1rem 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    header {
+      background: linear-gradient(135deg, #2a0845, #6441a5);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    header h1 {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #ffffff;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 1px;
-    }
+    header h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 1px;
+    }
 
-    header span {
-      background: rgba(255,255,255,0.2);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-    }
+    header span {
+      background: rgba(255,255,255,0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
 
-    .main-container {
-      display: grid;
-      grid-template-columns: 460px 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      flex: 1;
-      max-width: 1650px;
-      margin: 0 auto;
-      width: 100%;
-    }
+    .main-container {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      flex: 1;
+      max-width: 1650px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
-    .control-panel {
-      background-color: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      overflow-y: auto;
-      max-height: calc(100vh - 110px);
-    }
+    .control-panel {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 110px);
+    }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #a78bfa;
-      border-bottom: 1px solid var(--card-border);
-      padding-bottom: 0.4rem;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 0.5px;
-    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #a78bfa;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.4rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
 
-    .form-group label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
+    .form-group label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
 
-    .form-control, select {
-      background-color: var(--input-bg);
-      border: 1px solid var(--input-border);
-      color: var(--text-main);
-      padding: 0.65rem 0.85rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      outline: none;
-      transition: all 0.2s ease;
-    }
+    .form-control, select {
+      background-color: var(--input-bg);
+      border: 1px solid var(--input-border);
+      color: var(--text-main);
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
 
-    .form-control:focus, select:focus {
-      border-color: var(--accent-color);
-    }
+    .form-control:focus, select:focus {
+      border-color: var(--accent-color);
+    }
 
-    .upload-btn {
-      border: 2px dashed var(--accent-color);
-      color: #a78bfa;
-      background-color: rgba(99, 102, 241, 0.1);
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-align: center;
-      cursor: pointer;
-      display: block;
-      transition: 0.2s;
-    }
+    .upload-btn {
+      border: 2px dashed var(--accent-color);
+      color: #a78bfa;
+      background-color: rgba(99, 102, 241, 0.1);
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      display: block;
+      transition: 0.2s;
+    }
 
-    .upload-btn:hover {
-      background-color: rgba(99, 102, 241, 0.2);
-    }
+    .upload-btn:hover {
+      background-color: rgba(99, 102, 241, 0.2);
+    }
 
-    .winner-box {
-      background-color: rgba(255,255,255,0.02);
-      border: 1px dashed var(--card-border);
-      padding: 0.8rem;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .winner-box {
+      background-color: rgba(255,255,255,0.02);
+      border: 1px dashed var(--card-border);
+      padding: 0.8rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
-    .winner-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      font-family: 'Cinzel', serif;
-    }
+    .winner-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Cinzel', serif;
+    }
 
-    .btn-download {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: white;
-      border: none;
-      padding: 0.9rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 0.5rem;
-      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-family: 'Cinzel', serif;
-    }
+    .btn-download {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Cinzel', serif;
+    }
 
-    .btn-download:hover {
-      background: var(--accent-hover);
-    }
+    .btn-download:hover {
+      background: var(--accent-hover);
+    }
 
-    .preview-panel {
-      background-color: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    .preview-panel {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .canvas-wrapper {
-      max-width: 100%;
-      max-height: calc(100vh - 160px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      border-radius: 8px;
-      overflow: hidden;
-    }
+    .canvas-wrapper {
+      max-width: 100%;
+      max-height: calc(100vh - 160px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-    canvas {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 750px;
-      object-fit: contain;
-      background-color: #111;
-    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 750px;
+      object-fit: contain;
+      background-color: #111;
+    }
 
-    @media (max-width: 1024px) {
-      .main-container {
-        grid-template-columns: 1fr;
-      }
-      .control-panel {
-        max-height: none;
-      }
-    }
-  </style>
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+      .control-panel {
+        max-height: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Musabaqa 2026 Results Generator</h1>
-    <span>Clean Readable Typography</span>
-  </header>
+  <header>
+    <h1>Musabaqa 2026 Results Generator</h1>
+    <span>Clean Readable Typography</span>
+  </header>
 
-  <div class="main-container">
-    <!-- Input Control Panel -->
-    <div class="control-panel">
-      
-      <div class="section-title">1. Upload Template Background</div>
-      <div class="form-group">
-        <label>Select Poster Template Image File:</label>
-        <label for="imageLoader" class="upload-btn">
-          📷 Upload Template Image
-        </label>
-        <input type="file" id="imageLoader" accept="image/*" style="display: none;">
-      </div>
+  <div class="main-container">
+    <!-- Input Control Panel -->
+    <div class="control-panel">
+      
+      <div class="section-title">1. Upload Template Background</div>
+      <div class="form-group">
+        <label>Select Poster Template Image File:</label>
+        <label for="imageLoader" class="upload-btn">
+          📷 Upload Template Image
+        </label>
+        <input type="file" id="imageLoader" accept="image/*" style="display: none;">
+      </div>
 
-      <div class="section-title">2. Item Name Font Style</div>
-      <div class="form-group">
-        <label for="itemFontSelect">Select Font Style for Item Name</label>
-        <select id="itemFontSelect" class="form-control">
-          <option value="'Bebas Neue', sans-serif">Bebas Neue (Clean Tall Condensed)</option>
-          <option value="'Oswald', sans-serif">Oswald (Readable Condensed)</option>
-          <option value="'Montserrat', sans-serif">Montserrat (Standard Medium)</option>
-        </select>
-      </div>
+      <div class="section-title">2. Item Name Font Style</div>
+      <div class="form-group">
+        <label for="itemFontSelect">Select Font Style for Item Name</label>
+        <select id="itemFontSelect" class="form-control">
+          <option value="'Bebas Neue', sans-serif">Bebas Neue (Clean Tall Condensed)</option>
+          <option value="'Oswald', sans-serif">Oswald (Readable Condensed)</option>
+          <option value="'Montserrat', sans-serif">Montserrat (Standard Medium)</option>
+        </select>
+      </div>
 
-      <div class="section-title">3. Competition Details</div>
-      
-      <div class="form-group">
-        <label for="divisionSelect">Division</label>
-        <select id="divisionSelect" class="form-control">
-          <option value="BOYS">BOYS</option>
-          <option value="GIRLS">GIRLS</option>
-          <option value="MUALLIM">MUALLIM</option>
-        </select>
-      </div>
+      <div class="section-title">3. Competition Details</div>
+      
+      <div class="form-group">
+        <label for="divisionSelect">Division</label>
+        <select id="divisionSelect" class="form-control">
+          <option value="BOYS">BOYS</option>
+          <option value="GIRLS">GIRLS</option>
+          <option value="MUALLIM">MUALLIM</option>
+        </select>
+      </div>
 
-      <div class="form-group">
-        <label for="categorySelect">Category</label>
-        <select id="categorySelect" class="form-control"></select>
-      </div>
+      <div class="form-group">
+        <label for="categorySelect">Category</label>
+        <select id="categorySelect" class="form-control"></select>
+      </div>
 
-      <div class="form-group">
-        <label for="itemSelect">Item Name</label>
-        <select id="itemSelect" class="form-control"></select>
-      </div>
+      <div class="form-group">
+        <label for="itemSelect">Item Name</label>
+        <select id="itemSelect" class="form-control"></select>
+      </div>
 
-      <div class="form-group">
-        <label for="customItemInput">Custom Item (Optional Override)</label>
-        <input type="text" id="customItemInput" class="form-control" placeholder="Type custom item name">
-      </div>
+      <div class="form-group">
+        <label for="customItemInput">Custom Item (Optional Override)</label>
+        <input type="text" id="customItemInput" class="form-control" placeholder="Type custom item name">
+      </div>
 
-      <div class="section-title">4. Winners Information</div>
+      <div class="section-title">4. Winners Information</div>
 
-      <!-- 1st Prize -->
-      <div class="winner-box">
-        <span class="winner-title" style="color:#f59e0b;">🥇 1st Prize Winner</span>
-        <input type="text" id="winner1Name" class="form-control" placeholder="Winner Name">
-        <select id="winner1MadrasaSelect" class="form-control madrasa-dropdown"></select>
-        <input type="text" id="winner1MadrasaCustom" class="form-control" placeholder="Or type Madrasa name directly">
-      </div>
+      <!-- 1st Prize -->
+      <div class="winner-box">
+        <span class="winner-title" style="color:#f59e0b;">🥇 1st Prize Winner</span>
+        <input type="text" id="winner1Name" class="form-control" placeholder="Winner Name">
+        <select id="winner1MadrasaSelect" class="form-control madrasa-dropdown"></select>
+        <input type="text" id="winner1MadrasaCustom" class="form-control" placeholder="Or type Madrasa name directly">
+      </div>
 
-      <!-- 2nd Prize -->
-      <div class="winner-box">
-        <span class="winner-title" style="color:#9ca3af;">🥈 2nd Prize Winner</span>
-        <input type="text" id="winner2Name" class="form-control" placeholder="Winner Name">
-        <select id="winner2MadrasaSelect" class="form-control madrasa-dropdown"></select>
-        <input type="text" id="winner2MadrasaCustom" class="form-control" placeholder="Or type Madrasa name directly">
-      </div>
+      <!-- 2nd Prize -->
+      <div class="winner-box">
+        <span class="winner-title" style="color:#9ca3af;">🥈 2nd Prize Winner</span>
+        <input type="text" id="winner2Name" class="form-control" placeholder="Winner Name">
+        <select id="winner2MadrasaSelect" class="form-control madrasa-dropdown"></select>
+        <input type="text" id="winner2MadrasaCustom" class="form-control" placeholder="Or type Madrasa name directly">
+      </div>
 
-      <!-- 3rd Prize -->
-      <div class="winner-box">
-        <span class="winner-title" style="color:#d97706;">🥉 3rd Prize Winner</span>
-        <input type="text" id="winner3Name" class="form-control" placeholder="Winner Name">
-        <select id="winner3MadrasaSelect" class="form-control madrasa-dropdown"></select>
-        <input type="text" id="winner3MadrasaCustom" class="form-control" placeholder="Or type Madrasa name directly">
-      </div>
+      <!-- 3rd Prize -->
+      <div class="winner-box">
+        <span class="winner-title" style="color:#d97706;">🥉 3rd Prize Winner</span>
+        <input type="text" id="winner3Name" class="form-control" placeholder="Winner Name">
+        <select id="winner3MadrasaSelect" class="form-control madrasa-dropdown"></select>
+        <input type="text" id="winner3MadrasaCustom" class="form-control" placeholder="Or type Madrasa name directly">
+      </div>
 
-      <button id="downloadBtn" class="btn-download">
-        💾 Download High-Res Poster
-      </button>
+      <button id="downloadBtn" class="btn-download">
+        💾 Download High-Res Poster
+      </button>
 
-    </div>
+    </div>
 
-    <!-- Live Preview Canvas Panel -->
-    <div class="preview-panel">
-      <div class="canvas-wrapper">
-        <canvas id="posterCanvas" width="1024" height="1024"></canvas>
-      </div>
-    </div>
-  </div>
+    <!-- Live Preview Canvas Panel -->
+    <div class="preview-panel">
+      <div class="canvas-wrapper">
+        <canvas id="posterCanvas" width="1024" height="1024"></canvas>
+      </div>
+    </div>
+  </div>
 
-  <script>
-    // 12 Madrasas List
-    const madrasaList = [
-      "430 - ISLAHUL ULOOM, KADUPURM-MOTTAMMAL",
-      "703 - MADARIJUL ULOOM, MANKADA PALLIPPURAM",
-      "1241 - RAHMANIYYA, VENNAKKOD",
-      "2085 - MIFTHAHUL ULOOM, MUNHAKKULAM",
-      "2137 - MISBAHUL ULOOM, PARAMBATTUPARAMBU",
-      "2213 - SIRAJUL HUDA, KADOOPURAM EAST",
-      "5481 - MADARIJUL ULOOM, PATTIYILPARAMBA",
-      "6094 - IHYAUL ULOOM, UNNAMTHALA",
-      "6343 - HAYATHUL ISLAM, KUNDATT",
-      "6838 - MADRASSATHU DAHVA, PADINHARUMANNA",
-      "8197 - HAYATHUL ISLAM, KUNDATHARA",
-      "9470 - MADRASATHUL IMAN, MANKADA PALLIPURAM TOWN"
-    ];
+  <script>
+    // 12 Madrasas List
+    const madrasaList = [
+      "430 - ISLAHUL ULOOM, KADUPURM-MOTTAMMAL",
+      "703 - MADARIJUL ULOOM, MANKADA PALLIPPURAM",
+      "1241 - RAHMANIYYA, VENNAKKOD",
+      "2085 - MIFTHAHUL ULOOM, MUNHAKKULAM",
+      "2137 - MISBAHUL ULOOM, PARAMBATTUPARAMBU",
+      "2213 - SIRAJUL HUDA, KADOOPURAM EAST",
+      "5481 - MADARIJUL ULOOM, PATTIYILPARAMBA",
+      "6094 - IHYAUL ULOOM, UNNAMTHALA",
+      "6343 - HAYATHUL ISLAM, KUNDATT",
+      "6838 - MADRASSATHU DAHVA, PADINHARUMANNA",
+      "8197 - HAYATHUL ISLAM, KUNDATHARA",
+      "9470 - MADRASATHUL IMAN, MANKADA PALLIPURAM TOWN"
+    ];
 
-    // Competition Data
-    const musabaqaData = [
-      {
-        division: "BOYS",
-        categories: [
-          { category: "KIDDIES", items: [{ code: "101", name: "FATHIHA RECITATION" }, { code: "102", name: "STORY TELLING" }] },
-          { category: "SUB JUNIOR", items: [{ code: "201", name: "QIRA'ATH" }, { code: "202", name: "HIFL" }, { code: "203", name: "MAD'HUNNABI SONG" }, { code: "204", name: "HANDWRITING ARABIC MALAYALAM" }, { code: "205", name: "MEMORY TEST" }] },
-          { category: "JUNIOR", items: [{ code: "301", name: "QIRA'ATH" }, { code: "302", name: "HIFL" }, { code: "303", name: "ADAAN" }, { code: "304", name: "ELOCUTION" }, { code: "305", name: "ARABIC SONG" }, { code: "306", name: "ISLAMIC SONG" }, { code: "307", name: "ISLAMIC GROUP SONG" }, { code: "308", name: "URDU SONG" }, { code: "309", name: "ARABIC HANDWRITING" }, { code: "310", name: "PAINTING WATER COLOR" }, { code: "311", name: "KURUNNUKAL TEST" }] },
-          { category: "SENIOR", items: [{ code: "401", name: "QIRA'ATH" }, { code: "402", name: "HIFL" }, { code: "403", name: "ADAAN" }, { code: "404", name: "ISLAMIC SONG ARABIC" }, { code: "405", name: "ELOCUTION" }, { code: "406", name: "ENGLISH ELOCUTION" }, { code: "407", name: "URDU ELOCUTION" }, { code: "408", name: "MAPPILAPPATTU" }, { code: "409", name: "ARABIC CALLIGRAPHY" }, { code: "410", name: "QUIZ" }] },
-          { category: "SUPER SENIOR", items: [{ code: "501", name: "QIRA'ATH" }, { code: "502", name: "HIFL" }, { code: "503", name: "ARABIC ELOCUTION" }, { code: "504", name: "ELOCUTION" }, { code: "505", name: "ISLAMIC SONG ARABIC" }, { code: "506", name: "SPEECH AND SONG" }, { code: "507", name: "MAPPILAPPATTU" }, { code: "508", name: "ESSAY WRITING" }, { code: "509", name: "ARABIC WORD FIGHT" }] },
-          { category: "GENERAL", items: [{ code: "601", name: "BURDA RECITATION" }, { code: "602", name: "MAULID RECITATION" }, { code: "603", name: "DUFF MUTTU" }, { code: "604", name: "ARABIC GROUP SONG" }] },
-          { category: "ALUMNI", items: [{ code: "701", name: "SPOT ELOCUTION" }, { code: "702", name: "ISLAMIC SONG MASHUP" }, { code: "703", name: "MAPPILAPPATTU" }, { code: "704", name: "MASTER HUNT" }, { code: "705", name: "DIGITAL POSTER DESIGNING" }] }
-        ]
-      },
-      {
-        division: "GIRLS",
-        categories: [
-          { category: "SUB JUNIOR GIRLS", items: [{ code: "801", name: "HANDWRITING ARABIC MALAYALAM" }, { code: "802", name: "PENCIL DRAWING" }] },
-          { category: "JUNIOR GIRLS", items: [{ code: "803", name: "HANDWRITING ARABIC" }, { code: "804", name: "KURUNNUKAL TEST (ONLINE)" }] },
-          { category: "SENIOR GIRLS", items: [{ code: "805", name: "ARABIC CALLIGRAPHY" }, { code: "806", name: "NANO LITERATURE" }, { code: "807", name: "SANTHUSHTA KUDUMBAM TEST (ONLINE)" }] }
-        ]
-      },
-      {
-        division: "MUALLIM",
-        categories: [
-          { category: "MUALLIM", items: [{ code: "901", name: "HIZB" }, { code: "902", name: "HIFL" }, { code: "903", name: "ADAAN" }, { code: "904", name: "ARABIC ELOCUTION" }, { code: "905", name: "SPOT ELOCUTION" }, { code: "906", name: "ESSAY WRITING" }, { code: "907", name: "SAMASTHA QISSAPPATTU" }, { code: "908", name: "MUNAQASHA" }, { code: "909", name: "DIGITAL POSTER DESIGNING" }, { code: "910", name: "MUSHA'ARA" }, { code: "911", name: "BURDA RECITATION" }] }
-        ]
-      }
-    ];
+    // Competition Data
+    const musabaqaData = [
+      {
+        division: "BOYS",
+        categories: [
+          { category: "KIDDIES", items: [{ code: "101", name: "FATHIHA RECITATION" }, { code: "102", name: "STORY TELLING" }] },
+          { category: "SUB JUNIOR", items: [{ code: "201", name: "QIRA'ATH" }, { code: "202", name: "HIFL" }, { code: "203", name: "MAD'HUNNABI SONG" }, { code: "204", name: "HANDWRITING ARABIC MALAYALAM" }, { code: "205", name: "MEMORY TEST" }] },
+          { category: "JUNIOR", items: [{ code: "301", name: "QIRA'ATH" }, { code: "302", name: "HIFL" }, { code: "303", name: "ADAAN" }, { code: "304", name: "ELOCUTION" }, { code: "305", name: "ARABIC SONG" }, { code: "306", name: "ISLAMIC SONG" }, { code: "307", name: "ISLAMIC GROUP SONG" }, { code: "308", name: "URDU SONG" }, { code: "309", name: "ARABIC HANDWRITING" }, { code: "310", name: "PAINTING WATER COLOR" }, { code: "311", name: "KURUNNUKAL TEST" }] },
+          { category: "SENIOR", items: [{ code: "401", name: "QIRA'ATH" }, { code: "402", name: "HIFL" }, { code: "403", name: "ADAAN" }, { code: "404", name: "ISLAMIC SONG ARABIC" }, { code: "405", name: "ELOCUTION" }, { code: "406", name: "ENGLISH ELOCUTION" }, { code: "407", name: "URDU ELOCUTION" }, { code: "408", name: "MAPPILAPPATTU" }, { code: "409", name: "ARABIC CALLIGRAPHY" }, { code: "410", name: "QUIZ" }] },
+          { category: "SUPER SENIOR", items: [{ code: "501", name: "QIRA'ATH" }, { code: "502", name: "HIFL" }, { code: "503", name: "ARABIC ELOCUTION" }, { code: "504", name: "ELOCUTION" }, { code: "505", name: "ISLAMIC SONG ARABIC" }, { code: "506", name: "SPEECH AND SONG" }, { code: "507", name: "MAPPILAPPATTU" }, { code: "508", name: "ESSAY WRITING" }, { code: "509", name: "ARABIC WORD FIGHT" }] },
+          { category: "GENERAL", items: [{ code: "601", name: "BURDA RECITATION" }, { code: "602", name: "MAULID RECITATION" }, { code: "603", name: "DUFF MUTTU" }, { code: "604", name: "ARABIC GROUP SONG" }] },
+          { category: "ALUMNI", items: [{ code: "701", name: "SPOT ELOCUTION" }, { code: "702", name: "ISLAMIC SONG MASHUP" }, { code: "703", name: "MAPPILAPPATTU" }, { code: "704", name: "MASTER HUNT" }, { code: "705", name: "DIGITAL POSTER DESIGNING" }] }
+        ]
+      },
+      {
+        division: "GIRLS",
+        categories: [
+          { category: "SUB JUNIOR GIRLS", items: [{ code: "801", name: "HANDWRITING ARABIC MALAYALAM" }, { code: "802", name: "PENCIL DRAWING" }] },
+          { category: "JUNIOR GIRLS", items: [{ code: "803", name: "HANDWRITING ARABIC" }, { code: "804", name: "KURUNNUKAL TEST (ONLINE)" }] },
+          { category: "SENIOR GIRLS", items: [{ code: "805", name: "ARABIC CALLIGRAPHY" }, { code: "806", name: "NANO LITERATURE" }, { code: "807", name: "SANTHUSHTA KUDUMBAM TEST (ONLINE)" }] }
+        ]
+      },
+      {
+        division: "MUALLIM",
+        categories: [
+          { category: "MUALLIM", items: [{ code: "901", name: "HIZB" }, { code: "902", name: "HIFL" }, { code: "903", name: "ADAAN" }, { code: "904", name: "ARABIC ELOCUTION" }, { code: "905", name: "SPOT ELOCUTION" }, { code: "906", name: "ESSAY WRITING" }, { code: "907", name: "SAMASTHA QISSAPPATTU" }, { code: "908", name: "MUNAQASHA" }, { code: "909", name: "DIGITAL POSTER DESIGNING" }, { code: "910", name: "MUSHA'ARA" }, { code: "911", name: "BURDA RECITATION" }] }
+        ]
+      }
+    ];
 
-    const canvas = document.getElementById('posterCanvas');
-    const ctx = canvas.getContext('2d');
-    let uploadedTemplate = null;
+    const canvas = document.getElementById('posterCanvas');
+    const ctx = canvas.getContext('2d');
+    let uploadedTemplate = null;
 
-    // DOM Elements
-    const imageLoader = document.getElementById('imageLoader');
-    const itemFontSelect = document.getElementById('itemFontSelect');
-    const divisionSelect = document.getElementById('divisionSelect');
-    const categorySelect = document.getElementById('categorySelect');
-    const itemSelect = document.getElementById('itemSelect');
-    const customItemInput = document.getElementById('customItemInput');
+    // DOM Elements
+    const imageLoader = document.getElementById('imageLoader');
+    const itemFontSelect = document.getElementById('itemFontSelect');
+    const divisionSelect = document.getElementById('divisionSelect');
+    const categorySelect = document.getElementById('categorySelect');
+    const itemSelect = document.getElementById('itemSelect');
+    const customItemInput = document.getElementById('customItemInput');
 
-    const winner1Name = document.getElementById('winner1Name');
-    const winner1MadrasaSelect = document.getElementById('winner1MadrasaSelect');
-    const winner1MadrasaCustom = document.getElementById('winner1MadrasaCustom');
+    const winner1Name = document.getElementById('winner1Name');
+    const winner1MadrasaSelect = document.getElementById('winner1MadrasaSelect');
+    const winner1MadrasaCustom = document.getElementById('winner1MadrasaCustom');
 
-    const winner2Name = document.getElementById('winner2Name');
-    const winner2MadrasaSelect = document.getElementById('winner2MadrasaSelect');
-    const winner2MadrasaCustom = document.getElementById('winner2MadrasaCustom');
+    const winner2Name = document.getElementById('winner2Name');
+    const winner2MadrasaSelect = document.getElementById('winner2MadrasaSelect');
+    const winner2MadrasaCustom = document.getElementById('winner2MadrasaCustom');
 
-    const winner3Name = document.getElementById('winner3Name');
-    const winner3MadrasaSelect = document.getElementById('winner3MadrasaSelect');
-    const winner3MadrasaCustom = document.getElementById('winner3MadrasaCustom');
+    const winner3Name = document.getElementById('winner3Name');
+    const winner3MadrasaSelect = document.getElementById('winner3MadrasaSelect');
+    const winner3MadrasaCustom = document.getElementById('winner3MadrasaCustom');
 
-    const downloadBtn = document.getElementById('downloadBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
 
-    function populateMadrasaDropdowns() {
-      const selects = [winner1MadrasaSelect, winner2MadrasaSelect, winner3MadrasaSelect];
-      selects.forEach(select => {
-        select.innerHTML = '<option value="">-- Select Madrasa --</option>';
-        madrasaList.forEach(m => {
-          const opt = document.createElement('option');
-          opt.value = m;
-          opt.textContent = m;
-          select.appendChild(opt);
-        });
-      });
+    function populateMadrasaDropdowns() {
+      const selects = [winner1MadrasaSelect, winner2MadrasaSelect, winner3MadrasaSelect];
+      selects.forEach(select => {
+        select.innerHTML = '<option value="">-- Select Madrasa --</option>';
+        madrasaList.forEach(m => {
+          const opt = document.createElement('option');
+          opt.value = m;
+          opt.textContent = m;
+          select.appendChild(opt);
+        });
+      });
 
-      winner1MadrasaSelect.selectedIndex = 2; // RAHMANIYYA VENNAKKOD
-      winner2MadrasaSelect.selectedIndex = 7; // MADARIJUL ULOOM PATTIYILPARAMBA
-      winner3MadrasaSelect.selectedIndex = 10; // HAYATHUL ISLAM KUNDATHARA
-    }
+      winner1MadrasaSelect.selectedIndex = 2; // RAHMANIYYA VENNAKKOD
+      winner2MadrasaSelect.selectedIndex = 7; // MADARIJUL ULOOM PATTIYILPARAMBA
+      winner3MadrasaSelect.selectedIndex = 10; // HAYATHUL ISLAM KUNDATHARA
+    }
 
-    // Default Sample Names
-    winner1Name.value = "MUHAMMED ANSHIF";
-    winner2Name.value = "AHAMMED SAHAL";
-    winner3Name.value = "FATHIMA HANNA";
+    // Default Sample Names
+    winner1Name.value = "MUHAMMED ANSHIF";
+    winner2Name.value = "AHAMMED SAHAL";
+    winner3Name.value = "FATHIMA HANNA";
 
-    // Handle Template Upload
-    imageLoader.addEventListener('change', (e) => {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        uploadedTemplate = new Image();
-        uploadedTemplate.onload = function() {
-          canvas.width = uploadedTemplate.width;
-          canvas.height = uploadedTemplate.height;
-          renderPoster();
-        }
-        uploadedTemplate.src = event.target.result;
-      }
-      if (e.target.files[0]) {
-        reader.readAsDataURL(e.target.files[0]);
-      }
-    });
+    // Handle Template Upload
+    imageLoader.addEventListener('change', (e) => {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        uploadedTemplate = new Image();
+        uploadedTemplate.onload = function() {
+          canvas.width = uploadedTemplate.width;
+          canvas.height = uploadedTemplate.height;
+          renderPoster();
+        }
+        uploadedTemplate.src = event.target.result;
+      }
+      if (e.target.files[0]) {
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    });
 
-    function populateCategories() {
-      const selectedDiv = divisionSelect.value;
-      categorySelect.innerHTML = '';
-      const divData = musabaqaData.find(d => d.division === selectedDiv);
-      if (divData) {
-        divData.categories.forEach(cat => {
-          const opt = document.createElement('option');
-          opt.value = cat.category;
-          opt.textContent = cat.category;
-          categorySelect.appendChild(opt);
-        });
-      }
-      populateItems();
-    }
+    function populateCategories() {
+      const selectedDiv = divisionSelect.value;
+      categorySelect.innerHTML = '';
+      const divData = musabaqaData.find(d => d.division === selectedDiv);
+      if (divData) {
+        divData.categories.forEach(cat => {
+          const opt = document.createElement('option');
+          opt.value = cat.category;
+          opt.textContent = cat.category;
+          categorySelect.appendChild(opt);
+        });
+      }
+      populateItems();
+    }
 
-    function populateItems() {
-      const selectedDiv = divisionSelect.value;
-      const selectedCat = categorySelect.value;
-      itemSelect.innerHTML = '';
-      const divData = musabaqaData.find(d => d.division === selectedDiv);
-      if (divData) {
-        const catData = divData.categories.find(c => c.category === selectedCat);
-        if (catData) {
-          catData.items.forEach(item => {
-            const opt = document.createElement('option');
-            opt.value = item.name;
-            opt.textContent = `${item.code} - ${item.name}`;
-            itemSelect.appendChild(opt);
-          });
-        }
-      }
-      renderPoster();
-    }
+    function populateItems() {
+      const selectedDiv = divisionSelect.value;
+      const selectedCat = categorySelect.value;
+      itemSelect.innerHTML = '';
+      const divData = musabaqaData.find(d => d.division === selectedDiv);
+      if (divData) {
+        const catData = divData.categories.find(c => c.category === selectedCat);
+        if (catData) {
+          catData.items.forEach(item => {
+            const opt = document.createElement('option');
+            opt.value = item.name;
+            opt.textContent = `${item.code} - ${item.name}`;
+            itemSelect.appendChild(opt);
+          });
+        }
+      }
+      renderPoster();
+    }
 
-    divisionSelect.addEventListener('change', populateCategories);
-    categorySelect.addEventListener('change', populateItems);
-    itemSelect.addEventListener('change', renderPoster);
-    customItemInput.addEventListener('input', renderPoster);
-    itemFontSelect.addEventListener('change', renderPoster);
+    divisionSelect.addEventListener('change', populateCategories);
+    categorySelect.addEventListener('change', populateItems);
+    itemSelect.addEventListener('change', renderPoster);
+    customItemInput.addEventListener('input', renderPoster);
+    itemFontSelect.addEventListener('change', renderPoster);
 
-    [winner1Name, winner1MadrasaSelect, winner1MadrasaCustom,
-     winner2Name, winner2MadrasaSelect, winner2MadrasaCustom,
-     winner3Name, winner3MadrasaSelect, winner3MadrasaCustom].forEach(input => {
-      input.addEventListener('input', renderPoster);
-      input.addEventListener('change', renderPoster);
-    });
+    [winner1Name, winner1MadrasaSelect, winner1MadrasaCustom,
+     winner2Name, winner2MadrasaSelect, winner2MadrasaCustom,
+     winner3Name, winner3MadrasaSelect, winner3MadrasaCustom].forEach(input => {
+      input.addEventListener('input', renderPoster);
+      input.addEventListener('change', renderPoster);
+    });
 
-    function renderPoster() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function renderPoster() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const scaleX = canvas.width / 1024;
-      const scaleY = canvas.height / 1024;
+      const scaleX = canvas.width / 1024;
+      const scaleY = canvas.height / 1024;
 
-      if (uploadedTemplate) {
-        ctx.drawImage(uploadedTemplate, 0, 0, canvas.width, canvas.height);
-      } else {
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#4b5563";
-        ctx.font = `bold ${22 * scaleX}px 'Montserrat', sans-serif`;
-        ctx.textAlign = "center";
-        ctx.fillText("Please upload your Template Image from the left control panel", canvas.width / 2, canvas.height / 2);
-        return;
-      }
+      if (uploadedTemplate) {
+        ctx.drawImage(uploadedTemplate, 0, 0, canvas.width, canvas.height);
+      } else {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#4b5563";
+        ctx.font = `bold ${22 * scaleX}px 'Montserrat', sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText("Please upload your Template Image from the left control panel", canvas.width / 2, canvas.height / 2);
+        return;
+      }
 
-      // 1. Category & Division Text (Left Brown Card Top Area)
-      const categoryDivisionText = `${categorySelect.value || 'CATEGORY'} - ${divisionSelect.value || 'DIVISION'}`;
-      ctx.fillStyle = "#FFFFFF";
-      ctx.textAlign = "center";
-      ctx.font = `800 ${22 * scaleX}px 'Montserrat', sans-serif`;
-      ctx.fillText(categoryDivisionText, 330 * scaleX, 650 * scaleY);
+      // 1. Category & Division Text (Left Brown Card Top Area)
+      const categoryDivisionText = `${categorySelect.value || 'CATEGORY'} - ${divisionSelect.value || 'DIVISION'}`;
+      ctx.fillStyle = "#FFFFFF";
+      ctx.textAlign = "center";
+      ctx.font = `800 ${22 * scaleX}px 'Montserrat', sans-serif`;
+      ctx.fillText(categoryDivisionText, 330 * scaleX, 650 * scaleY);
 
-      // 2. Item Name Text (Unbolded Normal/Medium Font - Clean & Readable)
-      const itemName = customItemInput.value.trim() || itemSelect.value || "ITEM NAME";
-      const itemFont = itemFontSelect.value;
-      ctx.fillStyle = "#FFFFFF";
-      ctx.textAlign = "center";
-      
-      let itemFontSize = 48;
-      ctx.font = `400 ${itemFontSize * scaleX}px ${itemFont}`;
-      const maxItemWidth = 330 * scaleX;
-      while (ctx.measureText(itemName).width > maxItemWidth && itemFontSize > 16) {
-        itemFontSize -= 1;
-        ctx.font = `400 ${itemFontSize * scaleX}px ${itemFont}`;
-      }
-      ctx.fillText(itemName, 330 * scaleX, 755 * scaleY);
+      // 2. Item Name Text (Unbolded Normal/Medium Font - Clean & Readable)
+      const itemName = customItemInput.value.trim() || itemSelect.value || "ITEM NAME";
+      const itemFont = itemFontSelect.value;
+      ctx.fillStyle = "#FFFFFF";
+      ctx.textAlign = "center";
+      
+      let itemFontSize = 48;
+      ctx.font = `400 ${itemFontSize * scaleX}px ${itemFont}`;
+      const maxItemWidth = 330 * scaleX;
+      while (ctx.measureText(itemName).width > maxItemWidth && itemFontSize > 16) {
+        itemFontSize -= 1;
+        ctx.font = `400 ${itemFontSize * scaleX}px ${itemFont}`;
+      }
+      ctx.fillText(itemName, 330 * scaleX, 755 * scaleY);
 
-      // Helper to resolve Madrasa Name
-      const getMadrasaName = (customInput, selectElement) => {
-        return customInput.value.trim() !== "" ? customInput.value.trim() : selectElement.value;
-      };
+      // Helper to resolve Madrasa Name
+      const getMadrasaName = (customInput, selectElement) => {
+        return customInput.value.trim() !== "" ? customInput.value.trim() : selectElement.value;
+      };
 
-      // 3. Winners Text Placements (Directly Centered in Line with Badges 1, 2, 3)
-      // Badge Y centers: 485, 625, 760
-      const maxWinnerWidth = 300 * scaleX;
+      // 3. Winners Text Placements (Directly Centered in Line with Badges 1, 2, 3)
+      // Badge Y centers: 485, 625, 760
+      const maxWinnerWidth = 300 * scaleX;
 
-      const winners = [
-        { name: winner1Name.value, madrasa: getMadrasaName(winner1MadrasaCustom, winner1MadrasaSelect), nameY: 480, madrasaY: 506 },
-        { name: winner2Name.value, madrasa: getMadrasaName(winner2MadrasaCustom, winner2MadrasaSelect), nameY: 620, madrasaY: 646 },
-        { name: winner3Name.value, madrasa: getMadrasaName(winner3MadrasaCustom, winner3MadrasaSelect), nameY: 755, madrasaY: 781 }
-      ];
+      const winners = [
+        { name: winner1Name.value, madrasa: getMadrasaName(winner1MadrasaCustom, winner1MadrasaSelect), nameY: 480, madrasaY: 506 },
+        { name: winner2Name.value, madrasa: getMadrasaName(winner2MadrasaCustom, winner2MadrasaSelect), nameY: 620, madrasaY: 646 },
+        { name: winner3Name.value, madrasa: getMadrasaName(winner3MadrasaCustom, winner3MadrasaSelect), nameY: 755, madrasaY: 781 }
+      ];
 
-      winners.forEach(w => {
-        if (w.name) {
-          ctx.textAlign = "left";
+      winners.forEach(w => {
+        if (w.name) {
+          ctx.textAlign = "left";
 
-          // Winner Name (Pure Black #000000)
-          let nameFontSize = 26;
-          ctx.fillStyle = "#000000";
-          ctx.font = `800 ${nameFontSize * scaleX}px 'Montserrat', sans-serif`;
-          while (ctx.measureText(w.name).width > maxWinnerWidth && nameFontSize > 14) {
-            nameFontSize -= 1;
-            ctx.font = `800 ${nameFontSize * scaleX}px 'Montserrat', sans-serif`;
-          }
-          ctx.fillText(w.name, 610 * scaleX, w.nameY * scaleY);
+          // Winner Name (Pure Black #000000)
+          let nameFontSize = 26;
+          ctx.fillStyle = "#000000";
+          ctx.font = `800 ${nameFontSize * scaleX}px 'Montserrat', sans-serif`;
+          while (ctx.measureText(w.name).width > maxWinnerWidth && nameFontSize > 14) {
+            nameFontSize -= 1;
+            ctx.font = `800 ${nameFontSize * scaleX}px 'Montserrat', sans-serif`;
+          }
+          ctx.fillText(w.name, 610 * scaleX, w.nameY * scaleY);
 
-          // Madrasa Name (In Brackets & Grey Color #6B7280)
-          if (w.madrasa) {
-            const madrasaFormatted = `(${w.madrasa})`;
-            let madrasaFontSize = 15;
-            ctx.fillStyle = "#6B7280";
-            ctx.font = `600 ${madrasaFontSize * scaleX}px 'Montserrat', sans-serif`;
-            while (ctx.measureText(madrasaFormatted).width > maxWinnerWidth && madrasaFontSize > 9) {
-              madrasaFontSize -= 0.8;
-              ctx.font = `600 ${madrasaFontSize * scaleX}px 'Montserrat', sans-serif`;
-            }
-            ctx.fillText(madrasaFormatted, 610 * scaleX, w.madrasaY * scaleY);
-          }
-        }
-      });
-    }
+          // Madrasa Name (In Brackets & Grey Color #6B7280)
+          if (w.madrasa) {
+            const madrasaFormatted = `(${w.madrasa})`;
+            let madrasaFontSize = 15;
+            ctx.fillStyle = "#6B7280";
+            ctx.font = `600 ${madrasaFontSize * scaleX}px 'Montserrat', sans-serif`;
+            while (ctx.measureText(madrasaFormatted).width > maxWinnerWidth && madrasaFontSize > 9) {
+              madrasaFontSize -= 0.8;
+              ctx.font = `600 ${madrasaFontSize * scaleX}px 'Montserrat', sans-serif`;
+            }
+            ctx.fillText(madrasaFormatted, 610 * scaleX, w.madrasaY * scaleY);
+          }
+        }
+      });
+    }
 
-    populateMadrasaDropdowns();
-    populateCategories();
+    populateMadrasaDropdowns();
+    populateCategories();
 
-    downloadBtn.addEventListener('click', () => {
-      if (!uploadedTemplate) {
-        alert("Please upload your Template Image first!");
-        return;
-      }
-      const link = document.createElement('a');
-      const itemName = (customItemInput.value.trim() || itemSelect.value || "Result").replace(/[^a-zA-Z0-9-]/g, "_");
-      link.download = `Musabaqa_Result_${itemName}.png`;
-      link.href = canvas.toDataURL('image/png', 1.0);
-      link.click();
-    });
+    downloadBtn.addEventListener('click', () => {
+      if (!uploadedTemplate) {
+        alert("Please upload your Template Image first!");
+        return;
+      }
+      const link = document.createElement('a');
+      const itemName = (customItemInput.value.trim() || itemSelect.value || "Result").replace(/[^a-zA-Z0-9-]/g, "_");
+      link.download = `Musabaqa_Result_${itemName}.png`;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+    });
 
-    document.fonts.ready.then(() => {
-      renderPoster();
-    });
-  </script>
+    document.fonts.ready.then(() => {
+      renderPoster();
+    });
+  </script>
 </body>
 </html>
