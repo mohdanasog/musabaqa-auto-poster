@@ -226,11 +226,23 @@
     <!-- Input Control Panel -->
     <div class="control-panel">
       
-      <div class="section-title">1. Upload Template Background</div>
+      <div class="section-title">1. Background Template</div>
       <div class="form-group">
-        <label>Select Poster Template Image File:</label>
+        <label for="templateSelect">Choose Default or Upload</label>
+        <select id="templateSelect" class="form-control">
+          <option value="">-- Select a Template --</option>
+          <!-- REPLACE THESE WITH DIRECT .JPG OR .PNG LINKS -->
+          <option value="https://ibb.co/TDpxmmwg">Template 1</option>
+          <option value="https://ibb.co/MxH7NjJN">Template 2</option>
+          <option value="https://ibb.co/W4ZTk85d">Template 3</option>
+          <option value="https://ibb.co/Lz51kMtg">Template 4</option>
+          <option value="custom">📤 Upload Custom Template...</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="customUploadGroup" style="display: none;">
         <label for="imageLoader" class="upload-btn">
-          📷 Upload Template Image
+          📷 Click to Upload Template Image
         </label>
         <input type="file" id="imageLoader" accept="image/*" style="display: none;">
       </div>
@@ -363,7 +375,10 @@
     let uploadedTemplate = null;
 
     // DOM Elements
+    const templateSelect = document.getElementById('templateSelect');
+    const customUploadGroup = document.getElementById('customUploadGroup');
     const imageLoader = document.getElementById('imageLoader');
+    
     const itemFontSelect = document.getElementById('itemFontSelect');
     const divisionSelect = document.getElementById('divisionSelect');
     const categorySelect = document.getElementById('categorySelect');
@@ -406,17 +421,51 @@
     winner2Name.value = "AHAMMED SAHAL";
     winner3Name.value = "FATHIMA HANNA";
 
-    // Handle Template Upload
+    // Handle Template Selection
+    templateSelect.addEventListener('change', (e) => {
+      const val = e.target.value;
+      if (val === 'custom') {
+        customUploadGroup.style.display = 'flex';
+      } else {
+        customUploadGroup.style.display = 'none';
+        if (val !== "") {
+          loadExternalImage(val);
+        } else {
+          uploadedTemplate = null;
+          renderPoster();
+        }
+      }
+    });
+
+    function loadExternalImage(url) {
+      const img = new Image();
+      img.crossOrigin = "anonymous"; // Essential to avoid canvas CORS taint
+      img.onload = function() {
+        uploadedTemplate = img;
+        canvas.width = img.width || 1024;
+        canvas.height = img.height || 1024;
+        renderPoster();
+      };
+      img.onerror = function() {
+        alert("Error loading template. Ensure you pasted a DIRECT image link ending in .jpg/.png.");
+        uploadedTemplate = null;
+        renderPoster();
+      };
+      img.src = url;
+    }
+
+    // Handle Custom File Upload
     imageLoader.addEventListener('change', (e) => {
       const reader = new FileReader();
       reader.onload = function(event) {
-        uploadedTemplate = new Image();
-        uploadedTemplate.onload = function() {
-          canvas.width = uploadedTemplate.width;
-          canvas.height = uploadedTemplate.height;
+        const img = new Image();
+        img.onload = function() {
+          uploadedTemplate = img;
+          canvas.width = img.width || 1024;
+          canvas.height = img.height || 1024;
           renderPoster();
         }
-        uploadedTemplate.src = event.target.result;
+        img.src = event.target.result;
       }
       if (e.target.files[0]) {
         reader.readAsDataURL(e.target.files[0]);
@@ -484,18 +533,18 @@
         ctx.fillStyle = "#4b5563";
         ctx.font = `bold ${22 * scaleX}px 'Montserrat', sans-serif`;
         ctx.textAlign = "center";
-        ctx.fillText("Please upload your Template Image from the left control panel", canvas.width / 2, canvas.height / 2);
+        ctx.fillText("Please select a Template or Upload one from the left panel", canvas.width / 2, canvas.height / 2);
         return;
       }
 
-      // 1. Category & Division Text (Left Brown Card Top Area)
+      // 1. Category & Division Text
       const categoryDivisionText = `${categorySelect.value || 'CATEGORY'} - ${divisionSelect.value || 'DIVISION'}`;
       ctx.fillStyle = "#FFFFFF";
       ctx.textAlign = "center";
       ctx.font = `800 ${22 * scaleX}px 'Montserrat', sans-serif`;
       ctx.fillText(categoryDivisionText, 330 * scaleX, 650 * scaleY);
 
-      // 2. Item Name Text (Unbolded Normal/Medium Font - Clean & Readable)
+      // 2. Item Name Text
       const itemName = customItemInput.value.trim() || itemSelect.value || "ITEM NAME";
       const itemFont = itemFontSelect.value;
       ctx.fillStyle = "#FFFFFF";
@@ -510,13 +559,11 @@
       }
       ctx.fillText(itemName, 330 * scaleX, 755 * scaleY);
 
-      // Helper to resolve Madrasa Name
+      // 3. Winners Text Placements
       const getMadrasaName = (customInput, selectElement) => {
         return customInput.value.trim() !== "" ? customInput.value.trim() : selectElement.value;
       };
 
-      // 3. Winners Text Placements (Directly Centered in Line with Badges 1, 2, 3)
-      // Badge Y centers: 485, 625, 760
       const maxWinnerWidth = 300 * scaleX;
 
       const winners = [
@@ -529,7 +576,7 @@
         if (w.name) {
           ctx.textAlign = "left";
 
-          // Winner Name (Pure Black #000000)
+          // Winner Name
           let nameFontSize = 26;
           ctx.fillStyle = "#000000";
           ctx.font = `800 ${nameFontSize * scaleX}px 'Montserrat', sans-serif`;
@@ -539,7 +586,7 @@
           }
           ctx.fillText(w.name, 610 * scaleX, w.nameY * scaleY);
 
-          // Madrasa Name (In Brackets & Grey Color #6B7280)
+          // Madrasa Name
           if (w.madrasa) {
             const madrasaFormatted = `(${w.madrasa})`;
             let madrasaFontSize = 15;
@@ -560,14 +607,18 @@
 
     downloadBtn.addEventListener('click', () => {
       if (!uploadedTemplate) {
-        alert("Please upload your Template Image first!");
+        alert("Please select or upload a Template Image first!");
         return;
       }
-      const link = document.createElement('a');
-      const itemName = (customItemInput.value.trim() || itemSelect.value || "Result").replace(/[^a-zA-Z0-9-]/g, "_");
-      link.download = `Musabaqa_Result_${itemName}.png`;
-      link.href = canvas.toDataURL('image/png', 1.0);
-      link.click();
+      try {
+        const link = document.createElement('a');
+        const itemName = (customItemInput.value.trim() || itemSelect.value || "Result").replace(/[^a-zA-Z0-9-]/g, "_");
+        link.download = `Musabaqa_Result_${itemName}.png`;
+        link.href = canvas.toDataURL('image/png', 1.0);
+        link.click();
+      } catch (e) {
+        alert("Download failed. Make sure your image URLs are direct links and support CORS.");
+      }
     });
 
     document.fonts.ready.then(() => {
